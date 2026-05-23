@@ -2,6 +2,7 @@
 // GameVault — メインアプリケーションロジック
 // ========================================
 import { GENRES } from './src/data.js';
+import { fetchNewsData } from './src/api.js';
 import './style.css';
 
 // ── State ──
@@ -340,9 +341,7 @@ async function handleRefresh() {
   dom.cardGrid.style.pointerEvents = 'none';
 
   try {
-    const res = await fetch('/api/news');
-    if (!res.ok) throw new Error('API request failed');
-    const data = await res.json();
+    const data = await fetchNewsData();
     state.newsData = data;
     cleanupFavorites();
     renderStats();
@@ -428,9 +427,9 @@ async function init() {
   
   // 初期データの取得
   try {
-    const res = await fetch('/api/news');
-    if (res.ok) {
-      state.newsData = await res.json();
+    const data = await fetchNewsData();
+    if (data && data.length > 0) {
+      state.newsData = data;
       cleanupFavorites();
     }
   } catch (err) {

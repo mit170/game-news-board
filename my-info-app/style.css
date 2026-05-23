@@ -1160,57 +1160,107 @@ body::before {
   }
 
   .hero {
-    padding: var(--space-2xl) 0 var(--space-lg);
+    padding: var(--space-xl) 0 var(--space-md);
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
   }
 
   .stats-bar {
-    gap: var(--space-lg);
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* コントロール周りの最適化 */
+  .controls-section {
+    padding: var(--space-sm) 0;
+  }
+
+  .search-wrapper {
+    max-width: 100%;
+  }
+
+  /* フィルタータブを横スクロール可能に */
+  .filter-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 8px; /* スクロールバー用の余白 */
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    /* スクロールバーを隠す（Webkit） */
+  }
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .card-grid {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-md);
+    padding: var(--space-sm) 0 var(--space-2xl);
+  }
+
+  /* カードを少しコンパクトに */
+  .card-body {
+    padding: var(--space-md);
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    margin: var(--space-sm) 0;
   }
 
   .modal-container {
-    max-height: 95vh;
+    max-height: 90vh;
     border-radius: var(--radius-lg);
+    margin: 10px;
+    width: calc(100% - 20px);
   }
 
   .modal-body {
-    padding: 0 var(--space-lg) var(--space-lg);
+    padding: 0 var(--space-md) var(--space-md);
   }
 
   .modal-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .modal-info-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* スマホでは情報を縦1列に */
+    gap: var(--space-md);
   }
 
-  .modal-image-wrapper {
-    height: 200px;
+  .toast-notification {
+    bottom: var(--space-md);
+    right: var(--space-md);
+    left: var(--space-md);
+    justify-content: center;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
-  .filter-tabs {
-    gap: 4px;
-  }
-
   .filter-tab {
     padding: var(--space-xs) var(--space-md);
     font-size: 0.8rem;
+    white-space: nowrap; /* 文字の折り返しを防ぐ */
+  }
+
+  .list-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .card-fav-btn {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
   }
 
   .card-image-wrapper {
-    height: 170px;
-  }
-
-  .modal-info-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm);
+    height: 120px;
   }
 }
 
