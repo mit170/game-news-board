@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVault — アナログゲーム業界 最新ニュースガイド</title>
+  <meta name="description" content="ボードゲーム、TRPG、マーダーミステリー、脱出ゲームの最新ニュースやイベント情報を美しいカード形式で一覧。各記事の詳細を即座にチェックできます。" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Slim App Header ── -->
+    <header class="app-header">
+      <div class="container header-container">
+        <div class="brand">
+          <span class="logo-icon">📰</span>
+          <h1 class="logo-text">GameVault <span class="logo-accent">News</span></h1>
+        </div>
+        <div class="stats-mini" id="stats-bar">
+          <!-- Dynamically populated stats -->
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Controls: Search & Filter ── -->
+    <section class="controls-section" id="controls-section">
+      <div class="container">
+        <div class="controls-inner">
+          <!-- Search -->
+          <div class="search-wrapper">
+            <span class="search-icon">🔎</span>
+            <input
+              type="text"
+              class="search-input"
+              id="search-input"
+              placeholder="ニュースタイトル、タグ、キーワードで検索..."
+              autocomplete="off"
+            />
+            <button class="search-clear" id="search-clear" aria-label="検索をクリア">✕</button>
+          </div>
+
+          <!-- Filters -->
+          <div class="filter-tabs" id="filter-tabs" role="tablist">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Favorites toggle & Refresh -->
+          <div class="fav-toggle-wrapper">
+            <button class="fav-toggle" id="fav-toggle" aria-label="ブックマークのみ表示">
+              <span>♥</span>
+              <span>ブックマーク</span>
+            </button>
+            <button class="refresh-btn" id="refresh-btn" aria-label="最新ニュースを取得し直す">
+              <span class="refresh-icon">🔄</span>
+              <span>最新に更新</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Results Info ── -->
+    <div class="container">
+      <div class="results-info" id="results-info"></div>
+    </div>
+
+    <!-- ── Card Grid ── -->
+    <main class="container">
+      <div class="card-grid" id="card-grid">
+        <!-- Dynamically populated -->
+      </div>
+    </main>
+
+    <!-- ── Detail Modal ── -->
+    <div class="modal-overlay" id="modal-overlay">
+      <div class="modal-container" id="modal-container" role="dialog" aria-modal="true">
+        <button class="modal-close" id="modal-close" aria-label="閉じる">✕</button>
+        <div id="modal-content">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer class="app-footer">
+      <div class="container">
+        <p class="footer-text">
+          GameVault News © 2026 — アナログゲームファンのための最新ニュースフィード
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
